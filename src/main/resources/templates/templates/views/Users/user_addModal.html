@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div
+      class="modal fade"
+      id="addUserModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addUserModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content custom-modal">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addUserModalLabel">Agregar usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+
+            <form action="#" th:action="@{/users}" th:object="${user}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 mb-3">
+                            <label for="userName">Nombre</label>
+                            <input type="text" class="form-control" id="userNam" name="userName" th:field="*{userName}" required />
+                        </div>
+                        <div class="col-md-6 col-sm-6 mb-3"><label for="userSurname">Apellidos</label><input type="text" class="form-control" id="userSurname" name="userSurname" th:field="*{userSurname}" /></div>
+                        <div class="col-md-6 col-sm-6 mb-3">
+                          <label for="emailUser">Email</label>
+                          <input type="text" class="form-control" id="emailUser" name="emailUser" th:field="*{emailUser}" required />
+                        </div>
+                        <div class="col-6 col-md-6 col-sm-6 mb-3"><label for="userDni">Nº DNI</label><input type="text" class="form-control" id="userDni" name="userDni" th:field="*{userDni}" /></div>
+                        <div class="col-6 col-md-4 col-sm-6 mb-3"><label for="userBirthDate">Fecha nacimiento</label><input type="date" class="form-control" id="userBirthDate" name="userBirthDate" th:field="*{userBirthDate}" /></div>
+                        <div class="col-md-4 col-sm-6 mb-3"><label for="userPassword">Contraseña</label><input type="password" class="form-control" id="userPassword" name="userPassword" th:field="*{userPassword}" /></div>
+                        <div class="col-6 col-md-4 col-sm-6 mb-3"><label for="userPhone">Teléfono</label><input type="number" class="form-control" id="userPhone" name="userPhone" th:field="*{userPhone}" /></div>
+                        <div class="col-6 col-md-4 col-sm-6 mb-3"><label for="userPostalCode">Código Postal</label><input type="number" class="form-control" id="userPostalCode" name="userPostalCode" th:field="*{userPostalCode}" /></div>
+                        <div class="col-md-8 mb-6"><label for="userAddress">Dirección</label><input type="text" class="form-control" id="userAddress" name="userAddress" th:field="*{userAddress}" /></div>
+                        <div class="col-md-4 col-sm-6 mb-3"><label for="userCity">Ciudad</label><input type="text" class="form-control" id="userCity" name="userCity" th:field="*{userCity}" /></div>
+                        <div class="col-md-4 col-sm-6 mb-3"><label for="userCountry">País</label><input type="text" class="form-control" id="userCountry" name="userCountry" th:field="*{userCountry}" /></div>
+                        <div class="col-md-4 col-sm-6 mb-3">
+                          <label for="userRole" class="form-label">Género</label>
+                          <select class="form-control" id="userRole" name="userRole" th:field="*{userRole}">
+                            <option value="Hombre">Hombre</option>
+                            <option value="Mujer">Mujer</option>
+                            <option value="Otro">Otro</option>
+                          </select>
+                        </div>              
+                        <div class="col-6 col-md-4 col-sm-6 mb-3"><label for="userWeigth">Peso</label><input type="number" step="any" class="form-control" id="userWeigth" name="userWeigth" th:field="*{userWeigth}" /></div>
+                        <div class="col-6 col-md-4 col-sm-6 mb-3"><label for="userHeight">Altura</label><input type="number" step="any" class="form-control" id="userHeight" name="userHeight" th:field="*{userHeight}" /></div>
+                        <div class="col-md-4 col-sm-6 mb-3"><label for="userConsent">Consentimiento LOPD</label><input type="checkbox" class="form-check" id="userConsent" name="userConsent" th:field="*{userConsent}" /></div>
+                        <div class="col-6 col-md-6 mb-3"><label for="userDateConsent" class="form-label">Fecha de consentimiento</label><input type="datetime-local" class="form-control" id="userDateConsent" th:value="${user.userDateConsent}" readonly></div>
+                        <div class="col-md-4 col-sm-6 mb-3" hidden><label for="userActive">userActive</label><input type="checkbox" class="form-check" id="userActive" name="userActive" th:field="*{userActive}" /></div>
+                        <div class="col-6 col-md-6 mb-3"><label for="userCreatedAt" class="form-label">Fecha de creación</label><input type="datetime-local" class="form-control" id="userCreatedAt" th:value="${user.userCreatedAt}" readonly></div>
+                      </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-success" id="saveButton" disabled>Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!-- Modal de información -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header"><h5 class="modal-title" id="infoModalLabel">Información</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+          <div class="modal-body">
+            <p>El Usuario ha sido agregada correctamente con los siguientes detalles:</p>
+            <ul>
+              <li>ID: <span id="addedUserId"></span></li>
+              <li>userName: <span id="addedUserName"></span></li>
+              <li>emailUser: <span id="addedUserEmail"></span></li>
+            </ul>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></div>
+        </div>
+      </div>
+    </div>
+
+        <script>
+            function validateEmail(email) {
+                const regex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+                return regex.test(email);
+            }
+    
+            function validateDni(dni) {
+                const regex = /^\d{8}[a-zA-Z]$/;
+                const letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+    
+                if (regex.test(dni)) {
+                    const number = parseInt(dni.slice(0, 8), 10);
+                    const letter = dni.slice(-1).toUpperCase();
+                    return letters[number % 23] === letter;
+                }
+    
+                return false;
+            }
+    
+            function validatePhoneNumber(phoneNumber) {
+                const phoneRegex = /^\d{9}$/;
+                return phoneRegex.test(phoneNumber);
+            }
+    
+            function getCurrentDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = ("0" + (now.getMonth() + 1)).slice(-2);
+                const day = ("0" + now.getDate()).slice(-2);
+                const hours = ("0" + now.getHours()).slice(-2);
+                const minutes = ("0" + now.getMinutes()).slice(-2);
+                const seconds = ("0" + now.getSeconds()).slice(-2);
+                return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+            }
+    
+            function enableSaveButton() {
+                const email = document.getElementById("emailUser");
+                const dni = document.getElementById("userDni");
+                const phone = document.getElementById("userPhone");
+                const saveButton = document.getElementById("saveButton");
+    
+                if (
+                    email.classList.contains("is-valid") &&
+                    dni.classList.contains("is-valid") &&
+                    phone.classList.contains("is-valid")
+                ) {
+                    saveButton.disabled = false;
+                } else {
+                    saveButton.disabled = true;
+                }
+            }
+    
+            document.addEventListener("DOMContentLoaded", function () {
+                const currentDateTime = getCurrentDateTime();
+                document.getElementById("userDateConsent").value = currentDateTime;
+                document.getElementById("userCreatedAt").value = currentDateTime;
+            });
+    
+            document.getElementById("emailUser").addEventListener("input", function (event) {
+                const email = event.target.value;
+    
+                if (validateEmail(email)) {
+                    event.target.classList.add("is-valid");
+                    event.target.classList.remove("is-invalid");
+                } else {
+                    event.target.classList.add("is-invalid");
+                    event.target.classList.remove("is-valid");
+                }
+    
+                enableSaveButton();
+            });
+    
+            document.getElementById("userDni").addEventListener("input", function (event) {
+                const dni = event.target.value;
+    
+                if (validateDni(dni)) {
+                    event.target.classList.add("is-valid");
+                    event.target.classList.remove("is-invalid");
+                } else {
+                    event.target.classList.add("is-invalid");
+                    event.target.classList.remove("is-valid");
+                }
+    
+                enableSaveButton();
+            });
+    
+            document.getElementById("userPhone").addEventListener("input", function (event) {
+                const phoneNumber = event.target.value;
+    
+                if (validatePhoneNumber(phoneNumber)) {
+                    event.target.classList.add("is-valid");
+                    event.target.classList.remove("is-invalid");
+                } else {
+                    event.target.classList.add("is-invalid");
+                                    event.target.classList.remove("is-valid");
+            }
+
+            enableSaveButton();
+        });
+    </script>
+</body>
+</html>

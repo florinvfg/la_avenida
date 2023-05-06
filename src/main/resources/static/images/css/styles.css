@@ -1,0 +1,42 @@
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #6c757d;
+    --background-color: #bdcad6;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+  }
+  
+/*NAVBAR*/
+.nav-link:hover {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: var(--dark-color)!important;
+}
+
+/*Tamaño letra tablas Bootstrap*/
+    .table-smaller-font {
+        font-size: 0.875rem; /* Cambia el tamaño de la fuente a tu gusto */
+    }
+
+    .email-cell {
+        word-break: break-word; /* Permite que los textos largos se dividan en varias líneas */
+        max-width: 150px; /* Establece un ancho máximo para la celda de correo electrónico */
+    }
+
+
+  .is-valid {
+    border-color: var(--success-color);
+  }
+
+  .is-invalid {
+    border-color: var(--danger-color);
+  }
+
+
+  .custom-modal {
+    border: 2px solid var(--primary-color);
+    background-color: var(--background-color);
+}

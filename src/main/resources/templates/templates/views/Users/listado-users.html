@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="fragments/common-head :: common-head">
+  </head>
+  <body>
+    <h1>Listado de Usuarios <span th:text="${nombre}"></span>!</h1>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container">
+      <a href="#" class="btn btn-primary my-3" data-toggle="modal" data-target="#addUserModal">Agregar Usuario</a>
+      <button type="button" class="btn btn-primary my-3" onclick="location.href='/hello'">volver a Home<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3.293l5.5 5.5a.5.5 0 0 1-.707.707L8 4.707 2.707 10.5a.5.5 0 1 1-.707-.707L8 3.293z"/><path fill-rule="evenodd" d="M7.5 10.5V14h1v-3.5a.5.5 0 0 1 1 0V14h1v-3.5a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2V14h1v-3.5a.5.5 0 0 1 1 0z"/></svg></button>
+      <div class="alert alert-success" role="alert" th:if="${message}">
+        <span th:text="${message}"></span>
+      </div>
+      <div class="alert alert-danger" role="alert" th:if="${error}">
+        <span th:text="${error}"></span>
+      </div>
+      <div class="alert alert-danger" role="alert" th:if="${errorDelete}">
+        <span th:text="${errorDelete}"></span>
+      </div>
+      <div class="alert alert-success" role="alert" th:if="${messageDelete}">
+        <span th:text="${messageDelete}"></span>
+      </div>
+      <div class="alert alert-success" role="alert" th:if="${messageUpdate}">
+        <span th:text="${messageUpdate}"></span>
+      </div>
+      <div class="alert alert-danger" role="alert" th:if="${errorUpdate}">
+        <span th:text="${errorUpdate}"></span>
+      </div>
+      <div class="alert alert-success" role="alert" th:if="${messageAdd}">
+        <span th:text="${messageAdd}"></span>
+      </div>
+      <div class="alert alert-danger" role="alert" th:if="${errorAdd}">
+        <span th:text="${errorAdd}"></span>
+      </div>
+    </div>
+  
+<!-- tabla de Usuarios-->
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>UserDni</th>
+            <th>Fecha Nacimiento</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Telefono</th>
+            <th>Direccion</th>
+            <th>Ciudad</th>
+            <th class="d-none d-md-table-cell">País</th>
+            <th class="d-none d-md-table-cell">Código postal</th>
+            <th>Género</th>
+            <th>Peso</th>
+            <th>Altura</th>
+            <th>Consiente Datos</th>
+            <th class="d-none d-md-table-cell">Fecha Consentimiento</th>
+            <th class="d-none d-md-table-cell">userActive</th>
+            <th class="d-none d-md-table-cell">Fecha Creación Usuario</th>            
+            <th>Acciones</th></tr></thead>
+        <tbody>
+          <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.userSurname}"></td>
+            <td th:text="${user.userDni}"></td>
+            <td th:text="${user.userBirthDate}"></td>
+            <td th:text="${user.emailUser}"></td>
+            <td th:text="${user.userPassword}"></td>
+            <td th:text="${user.userPhone}"></td>
+            <td th:text="${user.userAddress}"></td>
+            <td th:text="${user.userCity}"></td>
+            <td class="d-none d-md-table-cell" th:text="${user.userCountry}"></td>
+            <td class="d-none d-md-table-cell" th:text="${user.userPostalCode}"></td>
+            <td th:text="${user.userRole}"></td>
+            <td th:text="${user.userWeigth}"></td>
+            <td th:text="${user.userHeight}"></td>
+            <td th:text="${user.userConsent}"></td>
+            <td class="d-none d-md-table-cell" th:text="${user.userDateConsent}"></td>
+            <td class="d-none d-md-table-cell" th:text="${user.userActive}"></td>
+            <td class="d-none d-md-table-cell" th:text="${user.userCreatedAt}"></td>
+          <td><button><a th:href="@{/users/detalle/{id}(id=${user.id})}" class="btn btn-warning">Editar</a></button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal para agregar user -->
+    <div th:replace="views/Users/user_addModal :: body"></div>
+    
+    
+
+      
+  </body>
+  <script>
+    $(document).ready(function () {
+     // Agregar usuario
+$("form").on("submit", function (event) {
+    event.preventDefault();
+
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+        url: "/users",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            $("#addedUserId").text(response.id);
+            $("#addedUserName").text(response.userName);
+            $("#addedUserEmail").text(response.emailUser);
+
+            $("#addUserModal").modal("hide");
+            $("#infoModal").modal("show");
+        },
+        error: function (xhr, status, error) {
+            console.log("Error: " + error);
+        },
+    });
+});
+
+
+        // Recargar la página cuando se cierre la ventana modal #infoModal
+      $("#infoModal").on("hidden.bs.modal", function () {
+        location.reload();
+      });
+  
+      // Mostrar formulario de edición en la ventana modal
+      $(".btn-editar").on("click", function (event) {
+    event.preventDefault();
+    const idUser = $(this).data("id");
+    mostrarFormularioEdicion(idUser);
+  });
+});
+
+function mostrarFormularioEdicion(idUser) {
+  $.ajax({
+    url: "/users/" + idUser,
+    type: "GET",
+    success: function (user) {
+      $("#userId").val(user.id);
+      $("#userName").val(user.userName);
+      $("#emailUser").val(user.emailUser);
+      $("#editarUserModal").modal("show");
+    },
+    error: function (xhr, status, error) {
+      console.log("Error: " + error);
+    },
+  });
+}
+
+function actualizarUser() {
+  const idUser = $("#userId").val();
+  const userName = $("#userName").val();
+  const emailUser = $("#emailUser").val();
+
+  const datosActualizados = {
+    userName: userName,
+    emailUser: emailUser,
+  };
+
+  $.ajax({
+    url: "/users/" + idUser,
+    type: "PUT",
+    data: JSON.stringify(datosActualizados),
+    contentType: "application/json",
+    success: function (response) {
+      $("#editarUserModal").modal("hide");
+      location.reload();
+    },
+    error: function (xhr, status, error) {
+      alert("Error al actualizar el usuario");
+    },
+  });
+}
+  </script>
+  
+</html>

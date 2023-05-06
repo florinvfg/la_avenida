@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+  <head th:replace="fragments/common-head :: common-head">
+  </head>
+  <body>
+    <h1>Detalle de Usuarios <span th:text="${nombre}"></span>!</h1>
+    <!-- Fragmento de la barra de navegación -->
+    <div th:replace="fragments/navbar :: navbar"></div>
+        <div class="container">
+            <button
+                type="button"
+                class="btn btn-warning"
+                data-toggle="modal"
+                data-target="#editarUserModal"
+            >Editar</button>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <td th:text="${user.id}"></td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td th:text="${user.userName}"></td>
+                </tr>
+                <tr>
+                    <th>Apellidos</th>
+                    <td th:text="${user.userSurname}"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td th:text="${user.emailUser}"></td>
+                </tr>
+                <tr>
+                    <th>Fecha de nacimiento</th>
+                    <td th:text="${user.userBirthDate}"></td>
+                </tr>
+                <tr>
+                    <th>Contraseña</th>
+                    <td th:text="${user.userPassword}"></td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <td th:text="${user.userPhone}"></td>
+                </tr>
+                <tr>
+                    <th>Dirección</th>
+                    <td th:text="${user.userAddress}"></td>
+                </tr>
+                <tr>
+                    <th>Ciudad</th>
+                    <td th:text="${user.userCity}"></td>
+                </tr>
+                <tr>
+                    <th>País</th>
+                    <td th:text="${user.userCountry}"></td>
+                </tr>
+                <tr>
+                    <th>Código postal</th>
+                    <td th:text="${user.userPostalCode}"></td>
+                </tr>
+                <tr>
+                    <th>Rol</th>
+                    <td th:text="${user.userRole}"></td>
+                </tr>
+                <tr>
+                    <th>Peso</th>
+                    <td th:text="${user.userWeigth}"></td>
+                </tr>
+                <tr>
+                    <th>Altura</th>
+                    <td th:text="${user.userHeight}"></td>
+                </tr>
+                <tr>
+                    <th>Consentimiento</th>
+                    <td th:text="${user.userConsent}"></td>
+                </tr>
+                <tr>
+                    <th>Fecha de consentimiento</th>
+                    <td th:text="${user.userDateConsent}"></td>
+                </tr>
+                <tr>
+                    <th>Activo</th>
+                    <td th:text="${user.userActive}"></td>
+                </tr>
+                <tr>
+                    <th>Fecha de creación</th>
+                    <td th:text="${user.userCreatedAt}"></td>
+                </tr>
+
+            </table>
+            <button type="button" class="btn btn-danger" onclick="mostrarModalEliminar()">Eliminar</button>
+            <a href="/users/listado-users" class="btn btn-primary">Volver al listado</a>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>ID:</strong>
+                        <span th:text="${user.id}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Nombre:</strong>
+                        <span th:text="${user.userName}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Apellidos:</strong>
+                        <span th:text="${user.userSurname}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Fecha de nacimiento:</strong>
+                        <span th:text="${user.userBirthDate}"></span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Email:</strong>
+                        <span th:text="${user.emailUser}"></span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Teléfono:</strong>
+                        <span th:text="${user.userPhone}"></span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4" hidden>
+                    <div class="d-flex justify-content-between">
+                        <strong>Contraseña:</strong>
+                        <span th:text="${user.userPassword}"></span>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="d-flex justify-content-between">
+                        <strong>Dirección:</strong>
+                        <span th:text="${user.userAddress}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="d-flex justify-content-between">
+                        <strong>Ciudad:</strong>
+                        <span th:text="${user.userCity}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="d-flex justify-content-between">
+                        <strong>País:</strong>
+                        <span th:text="${user.userCountry}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="d-flex justify-content-between">
+                        <strong>Código postal:</strong>
+                        <span th:text="${user.userPostalCode}"></span>
+                    </div>
+                </div>
+                <!-- ... -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Rol:</strong>
+                        <span th:text="${user.userRole}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Peso:</strong>
+                        <span th:text="${user.userWeigth}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Altura:</strong>
+                        <span th:text="${user.userHeight}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <strong>Consentimiento:</strong>
+                        <span th:text="${user.userConsent}"></span>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4" hidden>
+                    <div class="d-flex justify-content-between">
+                        <strong>Fecha de consentimiento:</strong>
+                        <span th:text="${user.userDateConsent}"></span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        
+        <!--Ventana modal de edicion-->
+        <div th:replace="views/Users/user_editModal :: body"></div>
+
+        <!-- Ventana modal de confirmación de eliminación -->
+        <div th:replace="views/Users/user_deleteModal :: body"></div>
+
+       
+        <!-- Ventana modal de error -->
+        <div
+            class="modal fade"
+            id="errorModal"
+            tabindex="-1"
+            aria-labelledby="errorModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        Ocurrió un error al actualizar el usuario. Por favor, inténtalo de nuevo.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+<script>
+    function actualizarUser() {
+  const userId = document.getElementById('userId').value;
+  const userName = document.getElementById('userName').value;
+  const userSurname = document.getElementById('userSurname').value;
+    const userBirthDate = document.getElementById('userBirthDate').value;
+  const emailUser = document.getElementById('emailUser').value;
+    const userPassword = document.getElementById('userPassword').value;
+    const userPhone = document.getElementById('userPhone').value;
+    const userAddress = document.getElementById('userAddress').value;
+    const userCity = document.getElementById('userCity').value;
+    const userCountry = document.getElementById('userCountry').value;
+    const userPostalCode = document.getElementById('userPostalCode').value;
+    const userRole = document.getElementById('userRole').value; 
+    const userWeigth = document.getElementById('userWeigth').value;
+    const userHeight = document.getElementById('userHeight').value;
+    const userConsent = document.getElementById('userConsent').value;
+    const userDateConsent = document.getElementById('userDateConsent').value;
+    const userActive = document.getElementById('userActive').value;
+    const userCreatedAt = document.getElementById('userCreatedAt').value;    
+
+
+  const data = {
+    id: userId,
+    userName: userName,
+    userSurname: userSurname,
+    emailUser: emailUser,   
+    userBirthDate: userBirthDate,
+    userPassword: userPassword,
+    userPhone: userPhone,
+    userAddress: userAddress,
+    userCity: userCity,
+    userCountry: userCountry,
+    userPostalCode: userPostalCode,
+    userRole: userRole,
+    userWeigth: userWeigth,
+    userHeight: userHeight,
+    userConsent: userConsent,
+    userDateConsent: userDateConsent,
+    userActive: userActive,
+    userCreatedAt: userCreatedAt,
+  };
+
+  fetch(`/users/${userId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Mostrar ventana modal de confirmación
+        document.getElementById('modalUserId').innerText = userId; // Agregar esta línea
+        $('#editarUserModal').modal('hide');
+        $('#confirmModal').modal('show');
+        // Recargar la página después de un tiempo
+        setTimeout(() => {
+          location.reload();
+        }, 2000); // El tiempo de espera en milisegundos antes de recargar la página
+      } else {
+        // Mostrar ventana modal de error
+        $('#editarUserModal').modal('hide');
+        $('#errorModal').modal('show');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      // Mostrar ventana modal de error
+      $('#editarUserModal').modal('hide');
+      $('#errorModal').modal('show');
+    });
+}
+//Eliminar User
+function eliminarUser() {
+    const userId = document.getElementById('userId').value;
+
+    fetch(`/users/${userId}`, {
+        method: 'DELETE',
+    })
+        .then((response) => {
+            if (response.ok) {
+                // Mostrar ventana modal de eliminación exitosa
+                $('#eliminarUserModal').modal('hide');
+                $('#eliminacionExitosaModal').modal('show');
+            } else {
+                // Mostrar ventana modal de error
+                $('#eliminarUserModal').modal('hide');
+                $('#errorModal').modal('show');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Mostrar ventana modal de error
+            $('#eliminarUserModal').modal('hide');
+            $('#errorModal').modal('show');
+        });
+}
+
+//mostrar modal Eliminar
+function mostrarModalEliminar() {
+  const userId = document.getElementById('userId').value;
+  document.getElementById('modalEliminarUserId').innerText = userId;
+  $('#eliminarUserModal').modal('show');
+}
+
+
+//obtener el id de un Usuario para eliminarl
+document.getElementById('modalEliminarUserId').textContent = userId;
+
+//redirigir al listado principal despues de eliminar una bici
+function redirigirAlListado() {
+    window.location.href = "/users/listado-users";
+}
+    </script>
+</html>

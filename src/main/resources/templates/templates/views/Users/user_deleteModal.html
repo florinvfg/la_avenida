@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+</head>
+<body>
+        <!-- Ventana modal para confirmar eliminación -->
+        <div
+            class="modal fade"
+            id="eliminarUserModal"
+            tabindex="-1"
+            aria-labelledby="eliminarUserModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eliminarUserModalLabel">Confirmar eliminación</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas eliminar el usuario con ID:
+                        <span id="modalEliminarUserId"></span>
+                        ?
+                    </div>                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" onclick="eliminarUser()">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventana modal de confirmación de eliminación exitosa -->
+        <div
+            class="modal fade"
+            id="eliminacionExitosaModal"
+            tabindex="-1"
+            aria-labelledby="eliminacionExitosaModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="eliminacionExitosaModalLabel">Eliminación exitosa</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        El Usuario se ha eliminado correctamente.
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                            onclick="redirigirAlListado()"
+                        >Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
