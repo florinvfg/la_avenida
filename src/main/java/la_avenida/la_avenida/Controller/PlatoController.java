@@ -1,7 +1,11 @@
-import org.springframework.beans.factory.annotation.Autowired;
+package la_avenida.la_avenida.Controller;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import la_avenida.la_avenida.Modelo.Plato;
+import la_avenida.la_avenida.Service.PlatoService;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +16,6 @@ public class PlatoController {
 
     private final PlatoService platoService;
 
-    @Autowired
     public PlatoController(PlatoService platoService) {
         this.platoService = platoService;
     }

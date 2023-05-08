@@ -1,12 +1,14 @@
-package la_avenida.la_avenida;
+package la_avenida.la_avenida.Modelo;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table(name = "bicicletas")
 @Entity
-@ComponentScan
 public class Cliente {
 
     @Id
@@ -18,7 +20,7 @@ public class Cliente {
     private String direccion;
 
     // Constructor por defecto (necesario para JPA)
-    protected Cliente() {}
+    public Cliente() {}
 
     public Cliente(String nombre, String apellido, String direccion) {
         this.nombre = nombre;

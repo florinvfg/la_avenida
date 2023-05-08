@@ -1,7 +1,12 @@
-import org.springframework.beans.factory.annotation.Autowired;
+package la_avenida.la_avenida.Controller;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import la_avenida.la_avenida.Modelo.Cliente;
+import la_avenida.la_avenida.Service.ClienteService;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -11,7 +16,6 @@ public class ClienteController {
 
     private final ClienteService clienteService;
 
-    @Autowired
     public ClienteController(ClienteService clienteService) {
         this.clienteService = clienteService;
     }

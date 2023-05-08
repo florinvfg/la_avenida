@@ -31,3 +31,259 @@ CREATE TABLE Mesa (
     numero VARCHAR(255) NOT NULL,
     capacidad INT
 );
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table bicicletas (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        direccion varchar(255),
+        nombre varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table camarero (
+       id bigint not null auto_increment,
+        apellido varchar(255),
+        nombre varchar(255),
+        numero_empleado varchar(255),
+        primary key (id)
+    ) engine=InnoDB;

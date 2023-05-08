@@ -1,36 +1,52 @@
-package la_avenida.la_avenida;
+package la_avenida.la_avenida.Modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+
+@EntityScan
 @ComponentScan
+@Table(name = "camarero")
+@Entity
 public class Camarero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "apellido")
     private String apellido;
+    
+    @Column(name = "numeroEmpleado")
     private String numeroEmpleado;
 
     // Constructor por defecto (necesario para JPA)
-    protected Camarero() {}
+    public Camarero() {
+    }
 
-    public Camarero(String nombre, String apellido, String numeroEmpleado) {
+    public Camarero(Long id, String nombre, String apellido, String numeroEmpleado) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.numeroEmpleado = numeroEmpleado;
     }
-
+   
     // Getters y Setters
 
     public Long getId() {
         return id;
     }
+
 
     public String getNombre() {
         return nombre;

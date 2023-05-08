@@ -1,5 +1,11 @@
-import org.springframework.beans.factory.annotation.Autowired;
+package la_avenida.la_avenida.Service;
+
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
+
+import la_avenida.la_avenida.Modelo.Plato;
+import la_avenida.la_avenida.Repositorios.PlatoRepository;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +15,6 @@ public class PlatoService {
 
     private final PlatoRepository platoRepository;
 
-    @Autowired
     public PlatoService(PlatoRepository platoRepository) {
         this.platoRepository = platoRepository;
     }

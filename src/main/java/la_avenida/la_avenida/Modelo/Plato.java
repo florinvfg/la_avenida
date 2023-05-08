@@ -1,19 +1,29 @@
-package la_avenida.la_avenida;
+package la_avenida.la_avenida.Modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Table;
+
+import la_avenida.la_avenida.Id;
 
 @Entity
-@ComponentScan
+@Table(name = "plato")
 public class Plato {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+   
+    @Column(name = "id")
     private Long id;
+   
+    @Column(name = "nombre")
     private String nombre;
+   
+    @Column(name = "descripcion")
     private String descripcion;
+    
+    @Column(name = "precio")
     private double precio;
 
     // Constructor vacío

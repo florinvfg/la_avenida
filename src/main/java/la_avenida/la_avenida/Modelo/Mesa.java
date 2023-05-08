@@ -1,11 +1,13 @@
-package la_avenida.la_avenida;
+package la_avenida.la_avenida.Modelo;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+
+@EntityScan
 @ComponentScan
 public class Mesa {
 

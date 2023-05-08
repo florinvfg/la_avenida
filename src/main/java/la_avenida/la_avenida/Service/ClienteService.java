@@ -1,15 +1,21 @@
+package la_avenida.la_avenida.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
+
+import la_avenida.la_avenida.Modelo.Cliente;
+import la_avenida.la_avenida.Repositorios.ClienteRepository;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@ComponentScan
+
 public class ClienteService {
 
-    private final ClienteRepository clienteRepository;
-
     @Autowired
+    private  ClienteRepository clienteRepository;
+
     public ClienteService(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }

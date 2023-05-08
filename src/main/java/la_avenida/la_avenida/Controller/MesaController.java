@@ -1,25 +1,32 @@
-import org.springframework.beans.factory.annotation.Autowired;
+package la_avenida.la_avenida.Controller;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.persistence.Table;
+import la_avenida.la_avenida.Modelo.Mesa;
+import la_avenida.la_avenida.Service.MesaService;
+
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/mesas")
+import javax.persistence.Entity;
+
+
+@Entity
+@Table(name = "mesa")
 public class MesaController {
 
     private final MesaService mesaService;
 
-    @Autowired
     public MesaController(MesaService mesaService) {
         this.mesaService = mesaService;
     }
 
     @GetMapping
     public ResponseEntity<List<Mesa>> obtenerTodasLasMesas() {
-        List<Mesa> mesas = mesaService.obtenerTodasLasMesas();
+        List<Mesa> mesas = MesaService.obtenerTodasLasMesas();
         return ResponseEntity.ok(mesas);
     }
 
